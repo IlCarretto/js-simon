@@ -47,10 +47,8 @@ function timerStart() {
 }
 
 function timerStop() {
-    timeoutStop = setTimeout(function() {
-        if (timeOut = true) {
-            clearTimeout(timerTimeout);
-            numbersTitle.innerHTML = "";
-        }
-    }, 1000)
+    if (timeOut = true) {
+        clearTimeout(timerTimeout);
+        numbersTitle.innerHTML = "";
+    }
 }
