@@ -10,6 +10,7 @@
 
 let numbersArray = [];
 const sameNumbers = [];
+let userNumbers = [];
 const casualNumbers = getRndInteger(1, 100);
 console.log(casualNumbers);
 const numbersTitle = document.getElementById("title");
@@ -19,6 +20,7 @@ startButton.addEventListener("click", timerStart)
 
 let timeOut = false;
 let timeoutStart;
+let timeoutNumbers;
 // FUNZIONI
 /**
  * Description: Funzione per creare numeri casuali non duplicati
@@ -40,24 +42,29 @@ function getRndInteger(min, max) {
  * Description: funzione per il timeout di 30 secondi
  */
 function timerStart() {
-    numbersTitle.innerHTML = casualNumbers;
     const userArray = [];
-    timeoutStart = setTimeout(function() {
+    numbersTitle.innerHTML = casualNumbers;
+
+    timeoutNumbers = setTimeout(function() {
         numbersTitle.innerHTML = "";
+    }, 10000);
+
+
+    timeoutStart = setTimeout(function() {
         for (let i = 0; i < 5; i++) {
             userNumbers = parseInt(prompt("Inserisci i numeri che hai visto"));
             userArray.push(userNumbers);
-            if (numbersArray.includes(userNumbers)) {
+            if (numbersArray.includes(userNumbers)
+            //  && !userNumbers.includes(numbersArray)
+            ) {
                 sameNumbers.push(userNumbers);
                 console.log(sameNumbers);
             }
         }
-        alert(`Hai indovinato ${sameNumbers.length} numeri!, ${sameNumbers}`)
-    }, 1000);
+    alert(`Hai indovinato ${sameNumbers.length} numeri!, ${sameNumbers}`)
+    }, 10500);
 }
 
-// function timerStop() {
-//     if (timeOut = true) {
-//         clearTimeout(timeoutStart);
-//     }
-// }
+function timerNumbers() {
+    numbersTitle.innerHTML = casualNumbers;
+}
